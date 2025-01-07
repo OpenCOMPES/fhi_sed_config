@@ -1,0 +1,18 @@
+dataframe:
+  tof_binning: 1
+
+
+energy:
+  # Bin ranges to use for energy calibration curves (for tof_binning=0)
+  ranges: [125000, 145000]
+  # Approximate position of the high-energy-cutoff in tof_column bins,
+  # used for displaying a graph to choose the energy correction function parameters.
+  tof_fermi: 130000
+
+momentum:
+  # bin ranges to use (in unbinned detector coordinates)
+  ranges: [[-256, 1792], [-256, 1792], [126000, 140000]]
+
+histogram:
+  # default ranges to use for histogram visualization (in unbinned detector coordinates)
+  ranges: [[0, 1800], [0, 1800],  [129000, 141000], [0, 32000]]
