@@ -54,6 +54,8 @@ metadata:
     azimuth: "trARPES:Carving:OMG.RBV"
     drain_current: "trARPES:Sample:Measure"
     pressure: "trARPES:XGS600:PressureAC:P_RD"
+    pump_power: "trARPES:Pump:Power.RBV"
+    pump_wavelength: "trARPES:Orpheus:Wavelength"
 
 # parameters for NeXus conversion
 nexus:
@@ -62,7 +64,7 @@ nexus:
   # the NeXus definition to use
   definition: "NXmpes"
   # additional input files, e.g. config and ELN files
-  input_files: ["/mnt/pcshare/specsscan/NXmpes_arpes_config.json"]
+  input_files: ["../NXmpes_arpes_config.json"]
 
 # parameters for the SpecsAnalyzer
 spa_params:
