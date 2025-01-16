@@ -3,7 +3,6 @@
   "/ENTRY/@default": "data",
   "/ENTRY/title": "['@eln:/ENTRY/title', '@attrs:metadata/entry_title', '@attrs:metadata/elabFTW/scan/title']",
   "/ENTRY/notes/description": "!['@eln:/ENTRY/notes', '@attrs:metadata/entry_notes', '@attrs:metadata/elabFTW/scan/summary']",
-  "/ENTRY/experiment_identifier": "['@eln:/ENTRY/identifier', '@attrs:metadata/entry_identifier', '@attrs:metadata/elabFTW/scan/elabid']",
   "/ENTRY/experiment_description": "['@eln:/ENTRY/identifier', '@attrs:metadata/entry_identifier', '@attrs:metadata/elabFTW/project/title']",
   "/ENTRY/experiment_documentation/description": "!['@eln:/ENTRY/experiment_description', '@attrs:metadata/experiment_description', '@attrs:metadata/elabFTW/project/summary']",
   "/ENTRY/experiment_documentation/type": "text/html",
