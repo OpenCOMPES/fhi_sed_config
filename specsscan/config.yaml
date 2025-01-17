@@ -24,6 +24,7 @@ coordinate_depends:
   X: "/entry/sample/transformations/trans_x"
   Y: "/entry/sample/transformations/trans_y"
   Z: "/entry/sample/transformations/trans_z"
+  delay: "/entry/instrument/beam_pump/pulse_delay"
 
 # dictionary containing units for the respective axes
 units:
@@ -56,6 +57,7 @@ metadata:
     pressure: "trARPES:XGS600:PressureAC:P_RD"
     pump_power: "trARPES:Pump:Power.RBV"
     pump_wavelength: "trARPES:Orpheus:Wavelength"
+    delaystage: "trARPES:Pump:delay"
 
 # parameters for NeXus conversion
 nexus:
