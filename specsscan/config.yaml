@@ -58,6 +58,9 @@ metadata:
     pump_power: "trARPES:Pump:Power.RBV"
     pump_wavelength: "trARPES:Orpheus:Wavelength"
     delaystage: "trARPES:Pump:delay"
+    fluence: "trARPES:Pump:fluence.RBV"
+    pump_pol: "trARPES:Pump:wp.RBV"
+    probe_pol: "trARPES:HHG:wp"
 
 # parameters for NeXus conversion
 nexus:
