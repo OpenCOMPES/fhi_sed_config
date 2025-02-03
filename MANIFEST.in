@@ -1,0 +1,5 @@
+prune *
+exclude *
+recursive-include src/fhi_sed_config *.py
+include pyproject.toml README.md
+graft src/fhi_sed_config/nomad/resources
