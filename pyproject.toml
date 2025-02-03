@@ -3,7 +3,7 @@ requires = ["setuptools>=64.0.1", "setuptools-scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fhi-sed-config"
+name = "fhi_sed_config"
 dynamic = ["version"]
 authors = [
     { name = "Laurenz Rettig", email = "rettig@fhi-berlin.mpg.de" },
