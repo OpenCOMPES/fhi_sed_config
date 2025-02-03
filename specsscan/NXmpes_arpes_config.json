@@ -98,7 +98,7 @@
         "AXISNAME[trans_z]/@units": "mm",
         "AXISNAME[trans_z]/@vector": [0, 0, 1],
         "analyzer_dispersion/@depends_on": "analyzer_rotation",
-        "analyzer_dispersion": "@link:/entry/data/angular1",
+        "analyzer_dispersion": "@link:/entry/data/angular0",
         "analyzer_dispersion/@transformation_type": "rotation",
         "analyzer_dispersion/@units": "degrees",
         "analyzer_dispersion/@vector": [1, 0, 0],
@@ -339,7 +339,7 @@
     "calibrated_axis": "@link:/entry/data/energy"
   },
   "/ENTRY/PROCESS[process]/CALIBRATION[angular0_calibration]":{
-    "calibrated_axis": "@link:/entry/data/angular1"
+    "calibrated_axis": "@link:/entry/data/angular0"
   },
   "/ENTRY/data": {
     "@axes": "@data:dims",
