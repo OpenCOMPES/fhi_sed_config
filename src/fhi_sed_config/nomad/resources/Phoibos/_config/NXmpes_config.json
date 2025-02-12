@@ -65,7 +65,7 @@
         "vendor": "SPECS GmbH",
         "model": "Phoibos 150 CCD Hemispherical Analyzer"
       },
-      "work_function": 4.55,
+      "work_function": "@attrs:metadata/conversion_parameters/work_function",
       "work_function/@units": "eV",
       "fast_axes": "@attrs:metadata/scan_info/fast_axes",
       "slow_axes": "@attrs:metadata/scan_info/slow_axes",
@@ -132,12 +132,12 @@
         "diameter": 300.0,
         "diameter/@units": "mm",
         "entrance_slit": {
-          "shape": "curved slit",
-          "size": 1.0,
+          "shape": "['@eln:/ENTRY/Instrument/Analyzer/slit_shape', '@attrs:metadata/instrument/electronanalyser/slit_shape', '@attrs:metadata/elabFTW/trarpes_phoibos/entrance_slit_shape', 'curved slit']",
+          "size": "['@eln:/ENTRY/Instrument/Analyzer/slit_size', '@attrs:metadata/instrument/electronanalyser/slit_size', '@attrs:metadata/elabFTW/trarpes_phoibos/entrance_slit_size', '1.0']",
           "size/@units": "mm"
         },
         "exit_slit": {
-          "shape": "grid"
+          "shape": "['@attrs:metadata/elabFTW/trarpes_phoibos/exit_slit_type', 'grid']"
         }
       },
       "DETECTOR[detector]": {
