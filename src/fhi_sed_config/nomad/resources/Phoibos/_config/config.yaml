@@ -2,6 +2,8 @@
 data_path: "/mnt/topfloor/trARPES/PESData/"
 # option to enable nested progress bars
 enable_nested_progress_bar: false
+# option to shift by photon energy if available
+shift_by_photon_energy: true
 
 # dictionary containing renaming rules for axis names (to change the name in the xarrays)
 coordinate_mapping:
@@ -25,6 +27,18 @@ coordinate_depends:
   Y: "/entry/sample/transformations/trans_y"
   Z: "/entry/sample/transformations/trans_z"
   delay: "/entry/instrument/beam_pump/pulse_delay"
+
+# dictionary of axis labels for the different axes
+coordinate_labels:
+  Ekin: "Kinetic Energy"
+  Angle: "Analyzer Dispersion"
+  polar: "Sample Polar"
+  tilt: "Sample Tilt"
+  azimuth: "Sample Azimuth"
+  X: "X Translation"
+  Y: "Y Translation"
+  Z: "Z Translation"
+  delay: "Pump-Probe Delay"
 
 # dictionary containing units for the respective axes
 units:
@@ -69,7 +83,7 @@ nexus:
   # the NeXus definition to use
   definition: "NXmpes"
   # additional input files, e.g. config and ELN files
-  input_files: ["../NXmpes_arpes_config.json"]
+  input_files: ["/mnt/pcshare/specsscan/NXmpes_config.json"]
 
 # parameters for the SpecsAnalyzer
 spa_params:
@@ -103,33 +117,28 @@ spa_params:
   #   pos_x/pos_y: the peak position in Fourier plane pixels
   #   sigma_x/sigma_y: the peak width (standard deviation) along each direction
   fft_filter_peaks:
-    - amplitude: 1
-      pos_x: 79
-      pos_y: 0
-      sigma_x: 8
-      sigma_y: 8
-    - amplitude: 1
-      pos_x: 176
-      pos_y: 0
-      sigma_x: 8
-      sigma_y: 8
-    - amplitude: 1
-      pos_x: 0
-      pos_y: 109
-      sigma_x: 5
-      sigma_y: 8
-    - amplitude: 1
-      pos_x: 78
-      pos_y: 109
-      sigma_x: 5
-      sigma_y: 5
-    - amplitude: 1
-      pos_x: 175
-      pos_y: 108
-      sigma_x: 5
-      sigma_y: 5
-    - amplitude: 1
-      pos_x: 254
-      pos_y: 109
-      sigma_x: 5
-      sigma_y: 8
+  - amplitude: 0.95
+    pos_x: -86.0
+    pos_y: 0
+    sigma_x: 13.0
+    sigma_y: 22.0
+  - amplitude: 0.95
+    pos_x: 86.0
+    pos_y: 0
+    sigma_x: 13.0
+    sigma_y: 22.0
+  - amplitude: 0.95
+    pos_x: 0
+    pos_y: 116.0
+    sigma_x: 13.0
+    sigma_y: 22.0
+  - amplitude: 0.95
+    pos_x: -86.0
+    pos_y: 116.0
+    sigma_x: 13.0
+    sigma_y: 22.0
+  - amplitude: 0.95
+    pos_x: 86.0
+    pos_y: 116.0
+    sigma_x: 13.0
+    sigma_y: 22.0
