@@ -24,6 +24,16 @@ except ImportError as exc:
         "Could not import nomad package. Please install the package 'nomad-lab'.",
     ) from exc
 
+resources = [
+    "Metis/Bin_scan_to_NeXus.ipynb",
+    "Metis/Cleanup_Scratch.ipynb",
+    "Metis/Generate_calibration_parameters.ipynb",
+    "Metis/Scan_diagnostics.ipynb",
+    "Phoibos/Save_scan_to_NeXus.ipynb",
+    "Phoibos/Setup_Parameters.ipynb",
+    "Phoibos/config_doublepump.yaml",
+]
+
 fhi_sed_config = ExampleUploadEntryPoint(
     title="Conversion template for FHI Metis and Phoibos data",
     category="Templates",
@@ -35,12 +45,10 @@ fhi_sed_config = ExampleUploadEntryPoint(
     # Include a file/folder into a specific location within the upload
     resources=[
         UploadResource(
-            path="https://raw.githubusercontent.com/OpenCOMPES/fhi_sed_config/refs/heads/main/templates/Metis/Bin_scan_to_NeXus.ipynb",
-            target="Metis/Bin_scan_to_NeXus.ipynb",
-        ),
-        UploadResource(
-            path="https://raw.githubusercontent.com/OpenCOMPES/fhi_sed_config/refs/heads/main/templates/Metis/Scan_diagnostics.ipynb",
-            target="Metis/Scan_diagnostics.ipynb",
-        ),
+            path="https://raw.githubusercontent.com/OpenCOMPES/fhi_sed_config/refs/heads/main/templates/"
+            + resource,
+            target=resource,
+        )
+        for resource in resources
     ],
 )
