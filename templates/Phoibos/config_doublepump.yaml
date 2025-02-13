@@ -1,0 +1,25 @@
+
+# dictionary containing renaming rules for axis names (to change the name in the xarrays)
+coordinate_mapping:
+  stage2: "delay2"
+
+# dictionary of corresponding NeXus paths for the different axes
+coordinate_depends:
+  stage2: "/entry/instrument/beam_pump2/pulse_delay"
+
+# dictionary of axis labels for the different axes
+coordinate_labels:
+  stage2: "Pump2-Probe Delay"
+
+# dictionary containing units for the respective axes
+units:
+  delay2: "fs"
+
+metadata:
+  epics_channels:
+    delay2: "trARPES:Pump2:delay:fs"
+
+# parameters for NeXus conversion
+nexus:
+  # additional input files, e.g. config and ELN files
+  input_files: ["/mnt/pcshare/specsscan/NXmpes_config_doublepump.json"]
