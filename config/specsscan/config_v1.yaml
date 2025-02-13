@@ -83,7 +83,7 @@ nexus:
   # the NeXus definition to use
   definition: "NXmpes"
   # additional input files, e.g. config and ELN files
-  input_files: ["/mnt/pcshare/specsscan/NXmpes_config.json"]
+  input_files: ["/mnt/pcshare/specsscan/NXmpes_config_v1.json"]
 
 # parameters for the SpecsAnalyzer
 spa_params:

@@ -383,4 +383,4 @@ nexus:
   definition: "NXmpes"
   # List containing additional input files to be handed to the pynxtools converter tool,
   # e.g. containing a configuration file, and additional metadata.
-  input_files: ["../NXmpes_config.json"]
+  input_files: ["/mnt/pcshare/sed/NXmpes_config_v1.json"]
