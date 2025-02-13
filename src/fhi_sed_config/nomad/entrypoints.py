@@ -18,7 +18,7 @@
 """Entry points for fhi sed config and templates."""
 
 try:
-    from nomad.config.models.plugins import ExampleUploadEntryPoint
+    from nomad.config.models.plugins import ExampleUploadEntryPoint, UploadResource
 except ImportError as exc:
     raise ImportError(
         "Could not import nomad package. Please install the package 'nomad-lab'.",
@@ -32,5 +32,9 @@ fhi_sed_config = ExampleUploadEntryPoint(
         converting data from the FHI trARPES lab to Nexus.
     """,
     plugin_package="fhi_sed_config",
-    resources=["nomad/resources/*"],
+    # Include a file/folder into a specific location within the upload
+    resources=UploadResource(
+        path="https://raw.githubusercontent.com/OpenCOMPES/fhi_sed_config/refs/heads/main/templates/Metis/Bin_scan_to_NeXus.ipynb",
+        target="Metis",
+    ),
 )
