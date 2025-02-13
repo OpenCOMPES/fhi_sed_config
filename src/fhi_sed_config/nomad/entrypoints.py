@@ -33,8 +33,14 @@ fhi_sed_config = ExampleUploadEntryPoint(
     """,
     plugin_package="fhi_sed_config",
     # Include a file/folder into a specific location within the upload
-    resources=UploadResource(
-        path="https://raw.githubusercontent.com/OpenCOMPES/fhi_sed_config/refs/heads/main/templates/Metis/Bin_scan_to_NeXus.ipynb",
-        target="Metis",
-    ),
+    resources=[
+        UploadResource(
+            path="https://raw.githubusercontent.com/OpenCOMPES/fhi_sed_config/refs/heads/main/templates/Metis/Bin_scan_to_NeXus.ipynb",
+            target="Metis/Bin_scan_to_NeXus.ipynb",
+        ),
+        UploadResource(
+            path="https://raw.githubusercontent.com/OpenCOMPES/fhi_sed_config/refs/heads/main/templates/Metis/Scan_diagnostics.ipynb",
+            target="Metis/Scan_diagnostics.ipynb",
+        ),
+    ],
 )
