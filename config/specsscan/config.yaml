@@ -2,6 +2,8 @@
 data_path: "/mnt/topfloor/trARPES/PESData/"
 # option to enable nested progress bars
 enable_nested_progress_bar: false
+# option to shift by photon energy if available
+shift_by_photon_energy: true
 
 # dictionary containing renaming rules for axis names (to change the name in the xarrays)
 coordinate_mapping:
@@ -25,6 +27,18 @@ coordinate_depends:
   Y: "/entry/sample/transformations/trans_y"
   Z: "/entry/sample/transformations/trans_z"
   delay: "/entry/instrument/beam_pump/pulse_delay"
+
+# dictionary of axis labels for the different axes
+coordinate_labels:
+  Ekin: "Kinetic Energy"
+  Angle: "Analyzer Dispersion"
+  polar: "Sample Polar"
+  tilt: "Sample Tilt"
+  azimuth: "Sample Azimuth"
+  X: "X Translation"
+  Y: "Y Translation"
+  Z: "Z Translation"
+  delay: "Pump-Probe Delay"
 
 # dictionary containing units for the respective axes
 units:
@@ -69,7 +83,7 @@ nexus:
   # the NeXus definition to use
   definition: "NXmpes"
   # additional input files, e.g. config and ELN files
-  input_files: ["../NXmpes_arpes_config.json"]
+  input_files: ["/mnt/pcshare/specsscan/NXmpes_config.json"]
 
 # parameters for the SpecsAnalyzer
 spa_params:
@@ -88,12 +102,12 @@ spa_params:
   # option for cropping the resulting xarrays
   crop: true
   # Parameters for cropping
-  ek_range_min: 0.07901758105839793
-  ek_range_max: 0.878310804841418
-  ang_range_min: 0.15058823529411766
-  ang_range_max: 0.8700653594771242
-  angle_offset_px: 2.0
-  rotation_angle: 1.0
+  ek_range_min: 0.07977736549165151
+  ek_range_max: 0.8775510204081639
+  ang_range_min: 0.15895424836601305
+  ang_range_max: 0.8616993464052287
+  angle_offset_px: 4
+  rotation_angle: 1
 
   # option to apply Fourier filtering
   apply_fft_filter: true
