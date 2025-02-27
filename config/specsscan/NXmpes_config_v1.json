@@ -160,7 +160,7 @@
       "probe": "photon",
       "type": "HHG laser",
       "mode": "Single Bunch",
-      "frequency": "['@eln:/ENTRY/Instrument/Source/Probe/frequency', '@attrs:metadata/instrument/beam/probe/frequency', '@attrs:metadata/elabFTW/laser_status/probe_repetition_rate']",
+      "frequency": "!['@eln:/ENTRY/Instrument/Source/Probe/frequency', '@attrs:metadata/instrument/beam/probe/frequency', '@attrs:metadata/elabFTW/laser_status/probe_repetition_rate']",
       "frequency/@units": "kHz",
       "associated_beam": "/entry/instrument/beam_probe"
     },
@@ -184,7 +184,7 @@
       "probe": "visible light",
       "type": "Optical Laser",
       "mode": "Single Bunch",
-      "frequency": "['@eln:/ENTRY/Instrument/Source/Pump/frequency', '@attrs:metadata/instrument/beam/pump/frequency', '@attrs:metadata/elabFTW/laser_status/pump_repetition_rate']",
+      "frequency": "!['@eln:/ENTRY/Instrument/Source/Pump/frequency', '@attrs:metadata/instrument/beam/pump/frequency', '@attrs:metadata/elabFTW/laser_status/pump_repetition_rate']",
       "frequency/@units": "kHz",
       "associated_beam": "/entry/instrument/beam_pump"
     },
