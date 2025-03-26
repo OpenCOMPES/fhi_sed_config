@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64.0.1", "setuptools-scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fhi_sed_config"
+dynamic = ["version"]
+authors = [
+    { name = "Laurenz Rettig", email = "rettig@fhi-berlin.mpg.de" },
+]
+description = ""
+readme = "README.md"
+license= {text = "Apache-2.0"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+]
+
+[project.entry-points.'nomad.plugin']
+fhi_sed_config = "fhi_sed_config.nomad.entrypoints:fhi_sed_config"
+
+[tool.setuptools.packages.find]
+where = [
+    "src",
+]
+
+[tool.setuptools_scm]

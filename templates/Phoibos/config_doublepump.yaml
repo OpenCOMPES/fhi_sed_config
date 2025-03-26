@@ -18,6 +18,7 @@ units:
 metadata:
   epics_channels:
     delay2: "trARPES:Pump2:delay:fs"
+    power2: "trARPES:Pump2:Power.RBV"
 
 # parameters for NeXus conversion
 nexus:
