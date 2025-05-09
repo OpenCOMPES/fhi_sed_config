@@ -43,17 +43,13 @@
       "type": "estimated"
     },
     "RESOLUTION[temporal_resolution]": {
-      "resolution": "!['@attrs:metadata/elabFTW/laser_status/temporal_resolution', '35.0']",
-      "resolution/@units": "fs",
+      "resolution": "!['@eln:/ENTRY/Instrument/temporal_resolution', '@attrs:metadata/instrument/temporal_resolution', '@attrs:metadata/elabFTW/laser_status/temporal_resolution']",
+      "resolution/@units": "['@eln:/ENTRY/Instrument/temporal_resolution/@units', 'fs']",
       "physical_quantity": "time",
       "type": "estimated"
     },
-    "RESOLUTION[angular_resolution]": {
-      "resolution": "@link:/entry/instrument/electronanalyzer/angular_resolution/resolution",
-      "resolution/@units": "deg",
-      "physical_quantity": "angle",
-      "type": "derived"
-    },
+    "RESOLUTION[angular_resolution]": "@link:/entry/instrument/electronanalyzer/angular_resolution",
+    "RESOLUTION[spatial_resolution]": "@link:/entry/instrument/electronanalyzer/spatial_resolution",
     "pressure_gauge": {
       "name": "sample_chamber_pressure",
       "measurement": "pressure",

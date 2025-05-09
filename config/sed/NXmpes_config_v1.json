@@ -34,7 +34,7 @@
     },
     "RESOLUTION[temporal_resolution]": {
       "resolution": "!['@eln:/ENTRY/Instrument/temporal_resolution', '@attrs:metadata/instrument/temporal_resolution', '@attrs:metadata/elabFTW/laser_status/temporal_resolution']",
-      "resolution/@units": "fs",
+      "resolution/@units": "['@eln:/ENTRY/Instrument/temporal_resolution/@units', 'fs']",
       "physical_quantity": "time",
       "type": "estimated"
     },
