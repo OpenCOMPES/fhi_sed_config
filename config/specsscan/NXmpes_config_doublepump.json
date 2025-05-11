@@ -10,7 +10,7 @@
   "/ENTRY/experiment_institution": "Fritz Haber Institute - Max Planck Society",
   "/ENTRY/experiment_facility": "Time Resolved ARPES",
   "/ENTRY/experiment_laboratory": "Clean Room 4",
-  "/ENTRY/identifierNAME[entry_identifier]": "@attrs:metadata/loader/scan_path",
+  "/ENTRY/identifierNAME[identifier_entry]": "@attrs:metadata/loader/scan_path",
   "/ENTRY/end_time": "@attrs:metadata/timing/acquisition_stop",
   "/ENTRY/duration": "@attrs:metadata/timing/acquisition_duration",
   "/ENTRY/duration/@units": "s",
@@ -43,17 +43,13 @@
       "type": "estimated"
     },
     "RESOLUTION[temporal_resolution]": {
-      "resolution": "!['@attrs:metadata/elabFTW/laser_status/temporal_resolution', '35.0']",
-      "resolution/@units": "fs",
+      "resolution": "!['@eln:/ENTRY/Instrument/temporal_resolution', '@attrs:metadata/instrument/temporal_resolution', '@attrs:metadata/elabFTW/laser_status/temporal_resolution']",
+      "resolution/@units": "['@eln:/ENTRY/Instrument/temporal_resolution/@units', 'fs']",
       "physical_quantity": "time",
       "type": "estimated"
     },
-    "RESOLUTION[angular_resolution]": {
-      "resolution": "@link:/entry/instrument/electronanalyzer/angular_resolution/resolution",
-      "resolution/@units": "deg",
-      "physical_quantity": "angle",
-      "type": "derived"
-    },
+    "RESOLUTION[angular_resolution]": "@link:/entry/instrument/electronanalyzer/angular_resolution",
+    "RESOLUTION[spatial_resolution]": "@link:/entry/instrument/electronanalyzer/spatial_resolution",
     "pressure_gauge": {
       "name": "sample_chamber_pressure",
       "measurement": "pressure",
@@ -303,34 +299,34 @@
     "drain_current_env": {
       "ammeter": "@link:/entry/instrument/manipulator/drain_current_ammeter"
     },
-    "depends_on": "/entry/sample/transformations/offset_azimuth",
+    "depends_on": "/entry/sample/transformations/sample_azimuth",
     "TRANSFORMATIONS[transformations]": {
-      "AXISNAME[offset_azimuth]/@depends_on": "sample_azimuth",
+      "AXISNAME[offset_azimuth]/@depends_on": "sample_tilt",
       "AXISNAME[offset_azimuth]": 0,
       "AXISNAME[offset_azimuth]/@units": "degrees",
       "AXISNAME[offset_azimuth]/@transformation_type": "rotation",
       "AXISNAME[offset_azimuth]/@vector": [0, 0, 1],
-      "AXISNAME[sample_azimuth]/@depends_on": "offset_tilt",
+      "AXISNAME[sample_azimuth]/@depends_on": "offset_azimuth",
       "AXISNAME[sample_azimuth]": "@attrs:metadata/scan_info/trARPES:Carving:OMG.RBV",
       "AXISNAME[sample_azimuth]/@units": "degrees",
       "AXISNAME[sample_azimuth]/@transformation_type": "rotation",
       "AXISNAME[sample_azimuth]/@vector": [0, 0, 1],
-      "AXISNAME[offset_tilt]/@depends_on": "sample_tilt",
+      "AXISNAME[offset_tilt]/@depends_on": "sample_polar",
       "AXISNAME[offset_tilt]": 0,
       "AXISNAME[offset_tilt]/@units": "degrees",
       "AXISNAME[offset_tilt]/@transformation_type": "rotation",
       "AXISNAME[offset_tilt]/@vector": [1, 0, 0],
-      "AXISNAME[sample_tilt]/@depends_on": "offset_polar",
+      "AXISNAME[sample_tilt]/@depends_on": "offset_tilt",
       "AXISNAME[sample_tilt]": "@attrs:metadata/scan_info/trARPES:Carving:PHI.RBV",
       "AXISNAME[sample_tilt]/@units": "degrees",
       "AXISNAME[sample_tilt]/@transformation_type": "rotation",
       "AXISNAME[sample_tilt]/@vector": [1, 0, 0],
-      "AXISNAME[offset_polar]/@depends_on": "sample_polar",
+      "AXISNAME[offset_polar]/@depends_on": "yz_flip",
       "AXISNAME[offset_polar]": -9,
       "AXISNAME[offset_polar]/@units": "degrees",
       "AXISNAME[offset_polar]/@transformation_type": "rotation",
       "AXISNAME[offset_polar]/@vector": [0, 1, 0],
-      "AXISNAME[sample_polar]/@depends_on": "yz_flip",
+      "AXISNAME[sample_polar]/@depends_on": "offset_polar",
       "AXISNAME[sample_polar]": "@attrs:metadata/scan_info/trARPES:Carving:THT.RBV",
       "AXISNAME[sample_polar]/@units": "degrees",
       "AXISNAME[sample_polar]/@transformation_type": "rotation",
@@ -363,11 +359,13 @@
     }
   },
   "/ENTRY/CALIBRATION[energy_calibration]":{
+    "program": "@attrs:metadata/scan_info/program_name",
+    "version": "@attrs:metadata/scan_info/program_version",
     "calibrated_axis": "@attrs:metadata/scan_info/Ekin",
     "calibrated_axis/@units": "energy",
     "physical_quantity": "energy",
     "PARAMETERS[conversion_parameters]":{
-      "TERM[*{apply_fft_filter,binning,rotation_angle,lens_mode,kinetic_energy,pass_energy,work_function,a_inner,da_matrix,retardation_ratio,source,dims,e_shift,de1,e_range,a_range,pixel_size,magnification,angle_offset_px,energy_offset_px}]": "@attrs:metadata/conversion_parameters/*"
+      "PARAMETER[*{apply_fft_filter,binning,rotation_angle,lens_mode,kinetic_energy,pass_energy,work_function,a_inner,da_matrix,retardation_ratio,source,dims,e_shift,de1,e_range,a_range,pixel_size,magnification,angle_offset_px,energy_offset_px}]": "@attrs:metadata/conversion_parameters/*"
     }
   },
   "/ENTRY/CALIBRATION[angular0_calibration]":{
@@ -383,12 +381,12 @@
     "binding_energy": 0.0,
     "binding_energy/@units": "energy"
   },
-  "/ENTRY/data": {
+  "/ENTRY/DATA[data]": {
     "@axes": "@data:dims",
-    "AXISNAME_indices[@*_indices]": "@data:*.index",
+    "@AXISNAME_indices[@*_indices]": "@data:*.index",
     "@signal": "data",
-    "data": "@data:data",
-    "data/@units": "counts",
+    "DATA[data]": "@data:data",
+    "DATA[data]/@units": "counts",
     "AXISNAME[*]": "@data:*.data",
     "AXISNAME[*]/@units": "@data:*.unit",
     "AXISNAME[*]/@reference": "@attrs:metadata/scan_info/coordinate_depends/*",
