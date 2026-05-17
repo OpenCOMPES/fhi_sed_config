@@ -354,7 +354,6 @@
   "/ENTRY/CALIBRATION[energy_calibration]":{
     "applied": "!@attrs:metadata/energy_calibration/applied",
     "fit_formula_inputs/PARAMETER[coefficients]": "['@attrs:metadata/energy_calibration/calibration/coefficients', '@attrs:metadata/energy_correction/calibration/coefficients']",
-    "fit_formula_inputs/PARAMETER[coefficients]/@units": "",
     "fit_formula_description": "['@attrs:metadata/energy_calibration/calibration/fit_function', '@attrs:metadata/energy_correction/calibration/fit_function']",
     "original_axis": "['@attrs:metadata/energy_calibration/tof', '@attrs:metadata/energy_correction/tof']",
     "original_axis/@units": "",
