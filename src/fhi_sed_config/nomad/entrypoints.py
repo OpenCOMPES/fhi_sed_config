@@ -18,7 +18,17 @@
 """Entry points for fhi sed config and templates."""
 
 try:
-    from nomad.config.models.plugins import ExampleUploadEntryPoint, UploadResource
+    from nomad.config.models.north import (
+        NORTHExternalMount,
+        NORTHTool,
+        NORTHToolMaintainer,
+        ReadMode,
+    )
+    from nomad.config.models.plugins import (
+        ExampleUploadEntryPoint,
+        NORTHToolEntryPoint,
+        UploadResource,
+    )
 except ImportError as exc:
     raise ImportError(
         "Could not import nomad package. Please install the package 'nomad-lab'.",
@@ -51,4 +61,46 @@ fhi_sed_config = ExampleUploadEntryPoint(
         )
         for resource in resources
     ],
+)
+
+mpes_desktop = NORTHToolEntryPoint(
+    north_tool=NORTHTool(
+        display_name='MPES Desktop',
+        short_description='A new jupyter desktop container for ARPES analysis containing Igor pro.',
+        description='A new jupyter desktop container for ARPES analysis containing Igor pro.',
+        image='nomad/mpes-code-fhi:latest',
+        image_pull_policy='Never',
+        icon='logo/jupyter.svg',
+        file_extensions=['ipynb'],
+        default_url='/lab',
+        path_prefix='/lab/tree',
+        with_path=True,
+        use_gpu=True,
+        seccomp_unconfined=True,
+        maintainer=[
+            NORTHToolMaintainer(
+                email='rettig@fhi-berlin.mpg.de',
+                name='Laurenz Rettig',
+            )
+        ],
+        mount_path='/home/jovyan',
+        privileged=False,
+        external_mounts=[
+            NORTHExternalMount(
+                host_path='/mnt/pcshare',
+                bind='pcshare',
+                mode=ReadMode.ro,
+            ),
+            NORTHExternalMount(
+                host_path='/scratch/localDataStore',
+                bind='localDataStore',
+                mode=ReadMode.rw,
+            ),
+            NORTHExternalMount(
+                host_path='/mnt/topfloor',
+                bind='topfloor',
+                mode=ReadMode.ro,
+            ),
+        ],
+    ),
 )

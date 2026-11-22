@@ -26,6 +26,7 @@ dependencies = [
 
 [project.entry-points.'nomad.plugin']
 fhi_sed_config = "fhi_sed_config.nomad.entrypoints:fhi_sed_config"
+mpes-desktop = "fhi_sed_config.nomad.entrypoints:mpes_desktop"
 
 [tool.setuptools.packages.find]
 where = [
